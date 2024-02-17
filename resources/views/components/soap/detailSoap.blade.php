@@ -38,34 +38,160 @@
         <div class="container">
             <div class="row justify-content-center mt-5">
                 <div class="col-md-10 border">
-                    @foreach($questions as $question)
-                        <div class="card border mt-3 mb-4">
-                            <div class="d-flex align-items-center m-1">
-                                <img class="nav-logo  mx-2"  src="{{asset('images/question-arrow.png')}}" alt="arrow"/>
-                                <h5 class="m-3">
-                                    {{ $question->question_text }}
-                                </h5>
-                            </div>
-                            <div class="card-body">
-                                <div class="btn-group-vertical w-100" data-toggle="buttons">
-                                    @foreach($options as $option)
-                                        @if($option->question_id == $question->id)
-                                            <label class="btn btn-light btn-lg mb-2">
-                                                <input type="checkbox" name="q_answer[]" value="{{ $option->id }}" autocomplete="off">
-                                                {{ $option->option_text }}
-                                            </label>
-                                        @endif
-                                    @endforeach
-                                    <level class="btn btn-light btn-lg mb-2 p-2">
-                                        <input type="checkbox" name="other" value="other" autocomplete="off">Others
-                                    </level>
-                                    <div class="w-100 p-3">
-                                        <textarea name="otherText" id="" class="form-control mb-2" placeholder="Please type your answer"></textarea>
-                                    </div>
+                    <div class="card border mt-3 mb-4">
+                        <div class="d-flex align-items-center m-1">
+                            <img class="nav-logo  mx-2"  src="{{asset('images/question-arrow.png')}}" alt="arrow"/>
+                            <h5 class="m-3">
+                                What is the primary reason for visit?
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="btn-group-vertical w-100" data-toggle="buttons">
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Relieve pain
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Relieve tension
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Relieve stress
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Relieve anxiety
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Improve mobility
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Improve quality of life (sleep, mood, etc.)
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Relaxation
+                                </label>
+                                <level class="btn btn-light btn-lg mb-2 p-2">
+                                    <input type="checkbox" name="other" value="other" autocomplete="off">Others
+                                </level>
+                                <div class="w-100">
+                                    <textarea name="general_soap_Other_textarea" id="otherText" class="form-control mb-2" placeholder="Please type your answer"></textarea>
                                 </div>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+                    <div class="card border mt-3 mb-4">
+                        <div class="d-flex align-items-center m-1">
+                            <img class="nav-logo  mx-2"  src="{{asset('images/question-arrow.png')}}" alt="arrow"/>
+                            <h5 class="m-3">
+                                Have we treated you for this in the past?
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="btn-group-vertical w-100" data-toggle="buttons">
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Yes
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    NO
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Unsure
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border mt-3 mb-4">
+                        <div class="d-flex align-items-center m-1">
+                            <img class="nav-logo  mx-2"  src="{{asset('images/question-arrow.png')}}" alt="arrow"/>
+                            <h5 class="m-3">
+                                Time pattern of pain
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="btn-group-vertical w-100" data-toggle="buttons">
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Constant (Pain does not change much from one moment to another)
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Variable (Pain all the time. Moments of more pain or varying types of pain)
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Intermittent (I feel pain sometimes but I am pain-free at other times)
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border mt-3 mb-4">
+                        <div class="d-flex align-items-center m-1">
+                            <img class="nav-logo  mx-2"  src="{{asset('images/question-arrow.png')}}" alt="arrow"/>
+                            <h5 class="m-3">
+                                Have you seen other healthcare practitioners about this issue?
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="btn-group-vertical w-100" data-toggle="buttons">
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Physician
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Massage Therapist
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Physical Therapist
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Chiropractor
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card border mt-3 mb-4">
+                        <div class="d-flex align-items-center m-1">
+                            <img class="nav-logo  mx-2"  src="{{asset('images/question-arrow.png')}}" alt="arrow"/>
+                            <h5 class="m-3">
+                                Select all tests performed:
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="btn-group-vertical w-100" data-toggle="buttons">
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Posture assessment of spine
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Posture assessment of shoulders
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Posture assessment of pelvis
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Range of motion
+                                </label>
+                                <label class="btn btn-light btn-lg mb-2">
+                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                    Palpation
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

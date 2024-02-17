@@ -10,22 +10,16 @@ use Illuminate\View\View;
 class soapController extends Controller
 {
     function BasicSoap(){
-        $questions =Question::all();
-        $options = Option::all();
-        return view('pages.soap.basicSoap',compact('questions','options'));
+        return view('pages.soap.basicSoap');
     }
-    function basicSoapQuestion(Request $request){
 
-    }
     function GeneralSoap(){
-        $questions =Question::all();
-        $options = Option::all();
-        return view('pages.soap.generalSoap',compact('questions','options'));
+
+        return view('pages.soap.generalSoap');
     }
 
     function DetailSoap(){
-        $questions =Question::all();
-        $options = Option::all();
-        return view('pages.soap.detailedSoap',compact('questions','options'));
+
+        return view('pages.soap.detailedSoap');
     }
 }

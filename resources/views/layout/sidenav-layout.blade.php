@@ -70,6 +70,10 @@
         <i class="bi bi-people"></i>
         <span class="side-bar-item-caption">Appointment</span>
     </a>
+    <a href="{{url("/history")}}" class="side-bar-item">
+        <i class="bi bi-clock-history"></i>
+        <span class="side-bar-item-caption">Health History</span>
+    </a>
 
     <a href="{{url('/basicSoapPage')}}" class="side-bar-item">
         <i class="bi bi-envelope"></i>
@@ -89,7 +93,7 @@
         <span class="side-bar-item-caption">Report</span>
     </a>
     <a href="{{url("/logout")}}" class="side-bar-item">
-        <i class="bi bi-bag"></i>
+        <i class="bi bi-box-arrow-right"></i>
         <span class="side-bar-item-caption">Log Out</span>
     </a>
 </div>

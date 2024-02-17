@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\appiontmentController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\HistoryController;
 use App\Http\Controllers\patientController;
 use App\Http\Controllers\QuestionController;
 use App\Http\Controllers\soapController;
@@ -38,6 +39,8 @@ Route::get('/logout',[UserController::class,'LogOut']);
 Route::get('/dashboard',[DashboardController::class,'DashboardPage'])->middleware([TokenVerification::class]);
 Route::get('/appointment',[appiontmentController::class,'appointmentPage'])->middleware(TokenVerification::class);
 Route::post('/newappointment',[appiontmentController::class,'NewAppointment']);
+
+Route::get('/history',[HistoryController::class,'historyPage'])->middleware(TokenVerification::class);
 
 
 Route::get('/basicSoapPage',[soapController::class,'BasicSoap'])->middleware([TokenVerification::class]);
