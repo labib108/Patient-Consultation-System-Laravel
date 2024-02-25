@@ -208,7 +208,7 @@
                     <div class="d-flex align-items-center m-1">
                         <textarea name="treatGoal" id="details_soap_treatment_goal_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                         <button class="hover-zoom bg-white border-0" id="details_soap_treatment_goal_button">
-                            <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                            <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                         </button>
                     </div>
                 </div>
@@ -294,7 +294,7 @@
                     <div class="d-flex align-items-center m-1">
                         <textarea name="treatGoal" id="details_soap_indicate_pain_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                         <button class="hover-zoom bg-white border-0" id="details_soap_indicate_pain_button">
-                            <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                            <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                         </button>
                     </div>
                 </div>
@@ -312,7 +312,7 @@
                     <div class="d-flex align-items-center m-1">
                         <textarea name="treatGoal" id="details_soap_additional_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                         <button class="hover-zoom bg-white border-0" id="details_soap_additional_button">
-                            <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                            <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                         </button>
                     </div>
                 </div>
@@ -577,7 +577,7 @@
                         <div class="d-flex align-items-center m-1">
                             <textarea name="treatGoal" id="details_soap_posture_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                             <button class="hover-zoom bg-white border-0" id="details_soap_posture_button">
-                                <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                                <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                             </button>
                         </div>
                     </div>
@@ -660,7 +660,7 @@
                         <div class="d-flex align-items-center m-1">
                             <textarea name="treatGoal" id="details_soap_palpation_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                             <button class="hover-zoom bg-white border-0" id="details_soap_palpation_button">
-                                <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                                <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                             </button>
                         </div>
                     </div>
@@ -797,7 +797,7 @@
                         <div class="d-flex align-items-center m-1">
                             <textarea name="treatGoal" id="details_soap_focus_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                             <button class="hover-zoom bg-white border-0" id="details_soap_focus_button">
-                                <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                                <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                             </button>
                         </div>
                     </div>
@@ -887,7 +887,7 @@
                         <div class="d-flex align-items-center m-1">
                             <textarea name="treatGoal" id="details_soap_respond_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                             <button class="hover-zoom bg-white border-0" id="details_soap_respond_button">
-                                <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                                <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                             </button>
                         </div>
                     </div>
@@ -905,7 +905,7 @@
                         <div class="d-flex align-items-center m-1">
                             <textarea name="treatGoal" id="details_soap_additional_text_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                             <button class="hover-zoom bg-white border-0" id="details_soap_additional_text_button">
-                                <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                                <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                             </button>
                         </div>
                     </div>
@@ -940,7 +940,7 @@
                         <div class="d-flex align-items-center m-1">
                             <textarea name="treatGoal" id="details_soap_treatment_plan_text_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                             <button class="hover-zoom bg-white border-0" id="details_soap_treatment_plan_text_button">
-                                <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                                <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                             </button>
                         </div>
                     </div>
@@ -957,7 +957,7 @@
                             <div class="d-flex align-items-center m-1">
                                 <textarea name="treatGoal" id="details_soap_recommendation_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                                 <button class="hover-zoom bg-white border-0" id="details_soap_recommendation_button">
-                                    <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                                    <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                                 </button>
                             </div>
                         </div>
@@ -1089,7 +1089,7 @@
 
         function updateButton(isActive) {
             button.classList.toggle('active', isActive);
-            const imageName = isActive ? 'microphone-listening.png' : 'microphone.png';
+            const imageName = isActive ? 'microphone.png' : 'microphone-listening.png';
             button.innerHTML = `<img class="nav-logo mx-2" src="{{asset('images/${imageName}')}}" alt="microphone"/>`;
         }
 

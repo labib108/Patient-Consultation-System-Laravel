@@ -127,7 +127,7 @@
                             <div class="d-flex align-items-center m-1">
                                 <textarea name="treatGoal" id="general_soap_treatment_goal_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                                 <button class="btn" id="general_soap_treatment_goal_button">
-                                    <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="arrow"/>
+                                    <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="arrow"/>
                                     <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                                 </button>
                             </div>
@@ -147,7 +147,7 @@
                             <div class="d-flex align-items-center m-1">
                                 <textarea name="treatGoal" id="general_soap_appointment_notes_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                                 <button class="hover-zoom bg-white border-0" id="general_soap_appointment_notes_button">
-                                    <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                                    <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                                 </button>
                             </div>
                         </div>
@@ -260,7 +260,7 @@
 
         function updateButton(isActive) {
             button.classList.toggle('active', isActive);
-            const imageName = isActive ? 'microphone-listening.png' : 'microphone.png';
+            const imageName = isActive ? 'microphone.png' : 'microphone-listening.png';
             button.innerHTML = `<img class="nav-logo mx-2" src="{{asset('images/${imageName}')}}" alt="microphone"/>`;
         }
 

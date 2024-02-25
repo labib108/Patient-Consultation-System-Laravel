@@ -41,6 +41,8 @@ Route::get('/appointment',[appiontmentController::class,'appointmentPage'])->mid
 Route::post('/newappointment',[appiontmentController::class,'NewAppointment']);
 
 Route::get('/history',[HistoryController::class,'historyPage'])->middleware(TokenVerification::class);
+Route::post('/newHistory',[HistoryController::class,'NewHistory']);
+
 
 
 Route::get('/basicSoapPage',[soapController::class,'BasicSoap'])->middleware([TokenVerification::class]);

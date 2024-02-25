@@ -126,7 +126,7 @@
                             <div class="d-flex align-items-center m-1">
                                 <textarea name="treatGoal" id="basic_soap_treatment_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                                 <button class="hover-zoom bg-white border-0" id="basic_soap_treatment_button">
-                                    <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                                    <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                                 </button>
                             </div>
                         </div>
@@ -182,7 +182,7 @@
                             <div class="d-flex align-items-center m-1">
                                 <textarea name="treatGoal" id="basic_soap_subjective_notes_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                                 <button class="hover-zoom bg-white border-0" id="basic_soap_subjective_notes_button">
-                                    <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                                    <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                                 </button>
                             </div>
                         </div>
@@ -200,7 +200,7 @@
                             <div class="d-flex align-items-center m-1">
                                 <textarea name="treatGoal" id="basic_soap_objective_notes_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                                 <button class="hover-zoom bg-white border-0" id="basic_soap_objective_notes_button">
-                                    <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                                    <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                                 </button>
                             </div>
                         </div>
@@ -218,7 +218,7 @@
                             <div class="d-flex align-items-center m-1">
                                 <textarea name="treatGoal" id="basic_soap_assessment_notes_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                                 <button class="hover-zoom bg-white border-0" id="basic_soap_assessment_notes_button">
-                                    <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                                    <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                                 </button>
                             </div>
                         </div>
@@ -236,7 +236,7 @@
                             <div class="d-flex align-items-center m-1">
                                 <textarea name="treatGoal" id="basic_soap_treatment_plan_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                                 <button class="hover-zoom bg-white border-0" id="basic_soap_treatment_plan_button">
-                                    <img class="nav-logo mx-2" src="{{asset('images/microphone.png')}}" alt="microphone"/>
+                                    <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                                 </button>
                             </div>
                         </div>
@@ -340,7 +340,7 @@
 
         function updateButton(isActive) {
             button.classList.toggle('active', isActive);
-            const imageName = isActive ? 'microphone-listening.png' : 'microphone.png';
+            const imageName = isActive ? 'microphone.png' : 'microphone-listening.png';
             button.innerHTML = `<img class="nav-logo mx-2" src="{{asset('images/${imageName}')}}" alt="microphone"/>`;
         }
 
