@@ -2,15 +2,17 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Option;
-use App\Models\Question;
+use App\Models\BasicSoapOption;
+use App\Models\BasicSoapQuestion;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
 
 class soapController extends Controller
 {
     function BasicSoap(){
-        return view('pages.soap.basicSoap');
+        $questions  = BasicSoapQuestion::all();
+        $options = BasicSoapOption::all();
+        return view('pages.soap.basicSoap',compact('questions', 'options'));
     }
 
     function GeneralSoap(){

@@ -43,76 +43,34 @@
         <div class="container">
             <div class="row justify-content-center mt-5">
                 <div class="col-md-8 border">
-                    <div class="card border mt-3 mb-4">
-                        <div class="d-flex align-items-center m-1">
-                            <img class="nav-logo  mx-2"  src="{{asset('images/question-arrow.png')}}" alt="arrow"/>
-                            <h5 class="m-3">
-                                What is the primary reason for visit?
-                            </h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="btn-group-vertical w-100" data-toggle="buttons">
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Relieve pain
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Relieve tension
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Relieve stress
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Relieve anxiety
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Improve mobility
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Improve quality of life (sleep, mood, etc.)
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Relaxation
-                                </label>
-                                <level class="btn btn-light btn-lg mb-2 p-2">
-                                    <input type="checkbox" name="other" value="other" autocomplete="off">Others
-                                </level>
-                                <div class="w-100">
-                                    <textarea name="general_soap_Other_textarea" id="otherText" class="form-control mb-2" placeholder="Please type your answer"></textarea>
+                    @foreach ($questions as $question)
+                        <div class="card border mt-3 mb-4">
+                            <div class="d-flex align-items-center m-1">
+                                <img class="nav-logo  mx-2"  src="{{asset('images/question-arrow.png')}}" alt="arrow"/>
+                                <h5 class="m-3">
+                                    {{ $question->basic_soap_question}}
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="btn-group-vertical w-100" data-toggle="buttons">
+                                    @foreach ($options as $option)
+                                        @if ($option->basic_soap_question_id == $question->id)
+                                    <label class="btn btn-light btn-lg mb-2">
+                                        <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
+                                        {{ $option->basic_soap_option}}
+                                    </label>
+                                        @endif
+                                    @endforeach
+                                </div>
+                                <div class="d-flex align-items-center m-1">
+                                    <textarea name="general_soap_Other_textarea" id="otherText" class="form-control mb-3 mt-2 pb-3" placeholder="Please type your answer"></textarea>
+                                    <button class="hover-zoom bg-white border-0" id="basic_soap_treatment_button">
+                                        <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card border mt-3 mb-4">
-                        <div class="d-flex align-items-center m-1">
-                            <img class="nav-logo  mx-2"  src="{{asset('images/question-arrow.png')}}" alt="arrow"/>
-                            <h5 class="m-3">
-                                Have we treated you for this in the past?
-                            </h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="btn-group-vertical w-100" data-toggle="buttons">
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Yes
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    NO
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Unsure
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="row justify-content-center mt-5">
                     <div class="col-md-8 border">
