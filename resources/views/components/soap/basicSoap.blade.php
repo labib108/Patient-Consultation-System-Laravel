@@ -14,9 +14,9 @@
         <div class="col-md-6">
             <div class="border p-4 bg-gradient-light text-center">
                 <lebel>
-                    Enter Client Name
+                    Enter Client ID
                 </lebel>
-                <input type="text" name="clientName" class="form-control" id="clientName" placeholder="Enter Client Name">
+                <input type="text" name="clientName" class="form-control" id="appointment_id" placeholder="Enter Client Application ID">
             </div>
         </div>
     </div>
@@ -136,10 +136,7 @@
                     <div class="col-md-8">
                         <div class="mb-4">
                             <div class="d-flex align-items-center m-2 p-2">
-                                <a href="{{url("#")}}" class="btn btn-outline-primary">
-                                    <i class="bi bi-plus-circle-fill"></i>
-                                    Submit
-                                </a>
+
                             </div>
                         </div>
                     </div>
@@ -246,10 +243,7 @@
                     <div class="col-md-8">
                         <div class="mb-4">
                             <div class="d-flex align-items-center m-2 p-2">
-                                <button class="btn btn-outline-primary">
-                                    <i class="bi bi-plus-circle-fill"></i>
-                                    Submit
-                                </button>
+
                             </div>
                         </div>
                     </div>

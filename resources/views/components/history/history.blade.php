@@ -57,7 +57,7 @@
                 <table class="table" id="myTable">
                     <thead>
                     <tr class="bg-light">
-                        <th>Appointment No</th>
+                        <th>Client ID</th>
                         <th>Name</th>
                         <th>Health Condition</th>
                         <th>Symptoms</th>
@@ -69,7 +69,7 @@
                     <tbody id="tableList">
                     @foreach($histories as $history)
                         <tr>
-                            <td>{{$history->id}}</td>
+                            <td>{{$history->appointment->id}}</td>
                             <td>{{$history->appointment->firstname}} {{$history->appointment->middlename}} {{$history->appointment->lastname}}</td>
                             <td>{{$history->condition}}</td>
                             <td>{{$history->symptoms}}</td>

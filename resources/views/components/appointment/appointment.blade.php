@@ -58,15 +58,12 @@
                     <div class="align-items-center col">
                         <h4>Appointment List</h4>
                     </div>
-                    <div class="align-items-center col">
-                        <a class="btn float-end m-0 bg-gradient-primary" href="{{url("/appointment")}}">New Appointment</a>
-                    </div>
                 </div>
                 <hr class="bg-dark "/>
                 <table class="table" id="myTable">
                     <thead>
                     <tr class="bg-light">
-                        <th>Appointment No</th>
+                        <th>Client ID</th>
                         <th>First name</th>
                         <th>Middle Name</th>
                         <th>Last name</th>
