@@ -37,3 +37,49 @@ The Patient Management System (PMS) is a comprehensive solution for doctors to s
 ![Report](image/report.png)
 ![Database](image/db.png)
 ![All](image/all.png)
+## Installation
+
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/labib108/patient-management-system-laravel.git
+    ```
+
+2. Navigate to the project directory:
+    ```sh
+    cd patient-management-system-laravel
+    ```
+
+3. Install the dependencies:
+    ```sh
+    composer install
+    npm install
+    ```
+
+4. Set up the environment file:
+    ```sh
+    cp .env.example .env
+    ```
+
+5. Generate the application key:
+    ```sh
+    php artisan key:generate
+    ```
+
+6. Set up the database in your `.env` file and run the migrations:
+    ```sh
+    php artisan migrate
+    ```
+
+7. Seed the database with initial data (optional):
+    ```sh
+    php artisan db:seed
+    ```
+
+8. Start the development server:
+    ```sh
+    php artisan serve
+    ```
+## Contact
+
+For any queries or support, please contact at [abubuckkersiddikh@gmail.com](mailto:abubuckkersiddikh@gmail.com).
+
