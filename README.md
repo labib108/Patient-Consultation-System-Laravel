@@ -24,6 +24,9 @@ The Patient Management System (PMS) is a comprehensive solution for doctors to s
 ### Automated Report Generation
 - Generates reports automatically, reducing administrative burden.
 - Ensures accuracy and efficiency in patient care documentation.
+### Voice to Text
+- Supports voice-to-text functionality to streamline the input of patient information
+- Improves efficiency and reduces the time required for data entry.
 
 ## Images
 ![Login](image/login.png) ![Dashboard](image/dashboard.png)
