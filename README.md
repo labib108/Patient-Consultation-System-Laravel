@@ -28,3 +28,12 @@ The Patient Management System (PMS) is a comprehensive solution for doctors to s
 ##Images
 ![Login](image/login.png)
 ![Dashboard](image/dashboard.png)
+![Appointment](image/client_form.png)
+![Appointment List](image/client_list.png)
+![History](image/history_from.png)
+![History List](image/history.png)
+![Soap Notea](image/soap1.png)
+![Soap Notea](image/soap2.png)
+![Report](image/report.png)
+![Database](image/db.png)
+![All](image/all.png)
