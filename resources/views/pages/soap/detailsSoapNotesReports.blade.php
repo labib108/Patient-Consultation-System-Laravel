@@ -1,5 +1,5 @@
 @extends('layout.sidenav-layout')
 @section('content')
-    @include('components.soap.addBasicSoapQuestion')
+    @include('components.soap.detailsSoapReport')
 @endsection
 

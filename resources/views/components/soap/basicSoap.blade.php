@@ -9,6 +9,8 @@
 </div>
 <hr>
 
+<form method="post" action="{{ route('basicSoapQuestion.answers') }}" enctype="multipart/form-data">
+    @csrf
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
@@ -16,7 +18,7 @@
                 <lebel>
                     Enter Client ID
                 </lebel>
-                <input type="text" name="clientName" class="form-control" id="appointment_id" placeholder="Enter Client Application ID">
+                <input type="text" name="appointment_id" class="form-control" id="appointment_id" placeholder="Enter Client Application ID *" required>
             </div>
         </div>
     </div>
@@ -55,18 +57,12 @@
                                 <div class="btn-group-vertical w-100" data-toggle="buttons">
                                     @foreach ($options as $option)
                                         @if ($option->basic_soap_question_id == $question->id)
-                                    <label class="btn btn-light btn-lg mb-2">
-                                        <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                        {{ $option->basic_soap_option}}
-                                    </label>
+                                        <label class="btn btn-light btn-lg mb-2">
+                                            <input type="checkbox" name="basic_soap_answer[{{ $question->id }}][]" value="{{ $option->id }}" autocomplete="off">
+                                            {{ $option->basic_soap_option}}
+                                        </label>
                                         @endif
                                     @endforeach
-                                </div>
-                                <div class="d-flex align-items-center m-1">
-                                    <textarea name="general_soap_Other_textarea" id="otherText" class="form-control mb-3 mt-2 pb-3" placeholder="Please type your answer"></textarea>
-                                    <button class="hover-zoom bg-white border-0" id="basic_soap_treatment_button">
-                                        <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
-                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -82,15 +78,15 @@
                                 </h5>
                             </div>
                             <div class="d-flex align-items-center m-1">
-                                <textarea name="treatGoal" id="basic_soap_treatment_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
-                                <button class="hover-zoom bg-white border-0" id="basic_soap_treatment_button">
+                                <textarea name="basic_soap_treatment_textarea" id="basic_soap_treatment_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
+                                <button class=" btn hover-zoom bg-white border-0" id="basic_soap_treatment_button">
                                     <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                                 </button>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center mt-5">
+               {{-- <div class="row justify-content-center mt-5">
                     <div class="col-md-8">
                         <div class="mb-4">
                             <div class="d-flex align-items-center m-2 p-2">
@@ -98,7 +94,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
     </div>
@@ -135,7 +131,7 @@
                                 </h5>
                             </div>
                             <div class="d-flex align-items-center m-1">
-                                <textarea name="treatGoal" id="basic_soap_subjective_notes_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
+                                <textarea id="basic_soap_subjective_notes_textarea" name="basic_soap_subjective_notes_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter  Subjective Information" required></textarea>
                                 <button class="hover-zoom bg-white border-0" id="basic_soap_subjective_notes_button">
                                     <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                                 </button>
@@ -153,7 +149,7 @@
                                 </h5>
                             </div>
                             <div class="d-flex align-items-center m-1">
-                                <textarea name="treatGoal" id="basic_soap_objective_notes_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
+                                <textarea name="basic_soap_objective_notes_textarea" id="basic_soap_objective_notes_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter Physical examination and text result" required></textarea>
                                 <button class="hover-zoom bg-white border-0" id="basic_soap_objective_notes_button">
                                     <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                                 </button>
@@ -171,7 +167,7 @@
                                 </h5>
                             </div>
                             <div class="d-flex align-items-center m-1">
-                                <textarea name="treatGoal" id="basic_soap_assessment_notes_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
+                                <textarea name="basic_soap_assessment_notes_textarea" id="basic_soap_assessment_notes_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter summary and conclusion from examination" required></textarea>
                                 <button class="hover-zoom bg-white border-0" id="basic_soap_assessment_notes_button">
                                     <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                                 </button>
@@ -189,7 +185,7 @@
                                 </h5>
                             </div>
                             <div class="d-flex align-items-center m-1">
-                                <textarea name="treatGoal" id="basic_soap_treatment_plan_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
+                                <textarea name="basic_soap_treatment_plan_textarea" id="basic_soap_treatment_plan_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter Treatment plan" required></textarea>
                                 <button class="hover-zoom bg-white border-0" id="basic_soap_treatment_plan_button">
                                     <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                                 </button>
@@ -197,7 +193,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center mt-5">
+                {{--<div class="row justify-content-center mt-5">
                     <div class="col-md-8">
                         <div class="mb-4">
                             <div class="d-flex align-items-center m-2 p-2">
@@ -205,7 +201,7 @@
                             </div>
                         </div>
                     </div>
-                </div>
+                </div>--}}
             </div>
         </div>
     </div>
@@ -221,20 +217,11 @@
                             </h5>
                         </div>
                         <hr>
+                        <div id="fileInfo" style="display: none;"></div>
                         <div class="d-flex align-items-center m-1">
-                            <button class="btn btn-outline-danger">UPLOAD FILE</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center mt-5">
-                    <div class="col-md-8">
-                        <div class="mb-4">
-                            <div class="d-flex align-items-center m-2 p-2">
-                                <button class="btn btn-outline-primary">
-                                    <i class="bi bi-plus-circle-fill"></i>
-                                    Submit
-                                </button>
-                            </div>
+                            <input type="file" name="fileInput" id="fileInput" accept="image/*, .pdf, .doc, .docx" style="display: none;" />
+                            <input type="hidden" id="fileData" name="fileData"/>
+                            <button type="button" class="btn btn-outline-danger" onclick="uploadFile()">UPLOAD FILE</button>
                         </div>
                     </div>
                 </div>
@@ -244,8 +231,92 @@
 </div>
 <!-- Tabs content -->
 
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-8">
+                <div class="mb-4">
+                    <div class="d-flex align-items-center m-2 p-2">
+                        <button type="submit" class="btn btn-outline-primary" onclick="Validate()">
+                            <i class="bi bi-plus-circle-fill"></i>
+                            Submit
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
+</form>
 <script>
+    function Validate() {
+        let fileInputNew = document.getElementById('fileInput');
+        let appointmentId = document.getElementById('appointment_id').value;
+        let treatmentTextarea = document.getElementById('basic_soap_treatment_textarea').value;
+        let subjectiveTextarea = document.getElementById('basic_soap_subjective_notes_textarea').value;
+        let objectiveTextarea = document.getElementById('basic_soap_objective_notes_textarea').value;
+        let assessmentTextarea = document.getElementById('basic_soap_assessment_notes_textarea').value;
+        let treatmentPlanTextarea = document.getElementById('basic_soap_treatment_plan_textarea').value;
+        let file = fileInputNew.files[0];
+
+        if (appointmentId.length === 0) {
+            errorToast("Appointment ID required")
+        }
+        if (treatmentTextarea.length === 0) {
+            errorToast("Treatment Goal is required")
+        }
+        if (subjectiveTextarea.length === 0) {
+            errorToast("Subjective Information is required")
+        }
+        if (objectiveTextarea.length === 0) {
+            errorToast("Objective Information is required")
+        }
+        if (assessmentTextarea.length === 0) {
+            errorToast("Assessment is required")
+        }
+        if (treatmentPlanTextarea.length === 0) {
+            errorToast("Treatment plan is required")
+        }
+        if (!file) {
+            errorToast("File upload is required");
+            window.location.href = '/basicSoapPage';
+        }
+    }
+
+    function uploadFile() {
+            const fileInput = document.getElementById('fileInput');
+            const fileDataInput = document.getElementById('fileData');
+            const fileInfoDiv = document.getElementById('fileInfo');
+            // Trigger click on the hidden file input
+            fileInput.click();
+
+            // Attach change event listener to the file input
+            fileInput.addEventListener('change', function () {
+                const selectedFile = fileInput.files[0];
+
+                if (selectedFile) {
+
+                    fileInfoDiv.innerHTML = `<p>File Name: ${selectedFile.name}</p>
+                                         <p>File Size: ${formatFileSize(selectedFile.size)}</p>`;
+                    fileInfoDiv.style.display = 'block';
+                    // Convert file to base64 for storing in the hidden input
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        fileDataInput.value = e.target.result;
+                    };
+                    reader.readAsDataURL(selectedFile);
+                }
+            });
+            function formatFileSize(size) {
+            const units = ['B', 'KB', 'MB', 'GB', 'TB'];
+            let i = 0;
+            while (size >= 1024 && i < units.length - 1) {
+                size /= 1024;
+                i++;
+            }
+            return size.toFixed(2) + ' ' + units[i];
+        }
+    }
+
 
     function initializeSpeechRecognition(textareaId, buttonId) {
         const textarea = document.getElementById(textareaId);

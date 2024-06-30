@@ -9,14 +9,16 @@
 </div>
 <hr>
 
+<form method="post" action="{{ route('generalSoapQuestion.answers') }}" enctype="multipart/form-data">
+    @csrf
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-6">
             <div class="border p-4 bg-gradient-light text-center">
                 <lebel>
-                    Enter Client Name
+                    Enter Appointment ID
                 </lebel>
-                <input type="text" name="clientName" class="form-control" id="clientName" placeholder="Enter Client Name">
+                <input type="text" name="appointment_id" class="form-control" id="appointment_id" placeholder="Enter Client Application ID">
             </div>
         </div>
     </div>
@@ -44,76 +46,28 @@
         <div class="container">
             <div class="row justify-content-center mt-5">
                 <div class="col-md-8 border">
-                    <div class="card border mt-3 mb-4">
-                        <div class="d-flex align-items-center m-1">
-                            <img class="nav-logo  mx-2"  src="{{asset('images/question-arrow.png')}}" alt="arrow"/>
-                            <h5 class="m-3">
-                                What is the primary reason for visit?
-                            </h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="btn-group-vertical w-100" data-toggle="buttons">
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Relieve pain
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Relieve tension
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Relieve stress
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Relieve anxiety
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Improve mobility
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Improve quality of life (sleep, mood, etc.)
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Relaxation
-                                </label>
-                                <level class="btn btn-light btn-lg mb-2 p-2">
-                                    <input type="checkbox" name="other" value="other" autocomplete="off">Others
-                                </level>
-                                <div class="w-100">
-                                    <textarea name="general_soap_Other_textarea" id="otherText" class="form-control mb-2" placeholder="Please type your answer"></textarea>
+                    @foreach ($questions as $question)
+                        <div class="card border mt-3 mb-4">
+                            <div class="d-flex align-items-center m-1">
+                                <img class="nav-logo  mx-2"  src="{{asset('images/question-arrow.png')}}" alt="arrow"/>
+                                <h5 class="m-3">
+                                    {{ $question->general_soap_question}}
+                                </h5>
+                            </div>
+                            <div class="card-body">
+                                <div class="btn-group-vertical w-100" data-toggle="buttons">
+                                    @foreach ($options as $option)
+                                        @if ($option->general_soap_question_id == $question->id)
+                                            <label class="btn btn-light btn-lg mb-2">
+                                                <input type="checkbox" name="general_soap_answer[{{ $question->id }}][]" value="{{ $option->id }}" autocomplete="off">
+                                                {{ $option->general_soap_option}}
+                                            </label>
+                                        @endif
+                                    @endforeach
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="card border mt-3 mb-4">
-                        <div class="d-flex align-items-center m-1">
-                            <img class="nav-logo  mx-2"  src="{{asset('images/question-arrow.png')}}" alt="arrow"/>
-                            <h5 class="m-3">
-                                Have we treated you for this in the past?
-                            </h5>
-                        </div>
-                        <div class="card-body">
-                            <div class="btn-group-vertical w-100" data-toggle="buttons">
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Yes
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    NO
-                                </label>
-                                <label class="btn btn-light btn-lg mb-2">
-                                    <input type="checkbox" name="q_answer[]" value="" autocomplete="off">
-                                    Unsure
-                                </label>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <div class="row justify-content-center mt-5">
                     <div class="col-md-8 border">
@@ -125,8 +79,8 @@
                                 </h5>
                             </div>
                             <div class="d-flex align-items-center m-1">
-                                <textarea name="treatGoal" id="general_soap_treatment_goal_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
-                                <button class="btn" id="general_soap_treatment_goal_button">
+                                <textarea name="general_soap_treatment_textarea" id="general_soap_treatment_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
+                                <button class="btn hover-zoom bg-white border-0" id="general_soap_treatment_goal_button">
                                     <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="arrow"/>
                                     <span class="spinner-border spinner-border-sm d-none" role="status" aria-hidden="true"></span>
                                 </button>
@@ -145,7 +99,7 @@
                                 </h5>
                             </div>
                             <div class="d-flex align-items-center m-1">
-                                <textarea name="treatGoal" id="general_soap_appointment_notes_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
+                                <textarea name="general_soap_appointment_notes_textarea" id="general_soap_appointment_notes_textarea" class="form-control mb-3 mt-2 pb-3" placeholder="Enter reason for Treatment"></textarea>
                                 <button class="hover-zoom bg-white border-0" id="general_soap_appointment_notes_button">
                                     <img class="nav-logo mx-2" src="{{asset('images/microphone-listening.png')}}" alt="microphone"/>
                                 </button>
@@ -211,7 +165,7 @@
         </div>
     </div>
 </div>
-
+</form>
 
 <script>
     // Function to initialize speech recognition for a specific text area and button

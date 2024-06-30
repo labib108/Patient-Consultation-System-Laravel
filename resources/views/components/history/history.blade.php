@@ -7,29 +7,31 @@
             <form action="">
                 <div class="row g-3">
                     <div class="col-md-6">
-                        <input type="text" name="id" class="form-control" id="appointment_id" placeholder="Enter Appointment ID">
+                        <label for="appointment_id">Appointment ID *</label>
+                        <input type="text" name="id" class="form-control" id="appointment_id" placeholder="Enter Appointment ID *" required>
                     </div>
                     <div class="col-md-6">
-                        <input type="text" name="history" class="form-control" id="condition" placeholder="Enter your health condition">
+                        <label for="condition">Health Condition *</label>
+                        <input type="text" name="history" class="form-control" id="condition" placeholder="Enter your health condition *" required>
                     </div>
                     <div class="col-md-6">
-                        <input type="text" name="symptoms" class="form-control" id="symptoms" placeholder="Enter your current symptoms">
+                        <label for="symptoms">Symptoms *</label>
+                        <input type="text" name="symptoms" class="form-control" id="symptoms" placeholder="Enter your current symptoms *" required>
                     </div>
                     <div class="col-md-6">
-                        <input type="text" name="injuries " class="form-control" id="injuries" placeholder="Enter any injuries and issues ">
+                        <label for="injuries">Injuries *</label>
+                        <input type="text" name="injuries" class="form-control" id="injuries" placeholder="Enter any injuries and issues *" required>
                     </div>
-
                     <div class="col-md-6">
+                        <label for="other">Others</label>
                         <input type="text" name="others" class="form-control" id="other" placeholder="Enter any other issues">
                     </div>
-
                     <div class="col-md-8">
-                        <lebel>Date</lebel>
-                        <input type="date" class="form-control" id="date" placeholder="Enter Date">
+                        <label for="date">Date *</label>
+                        <input type="date" name="date" class="form-control" id="date" placeholder="Enter Date" required>
                     </div>
-
                     <div class="col-12 mt-5">
-                        <button type="submit" onclick="onHistory()" class="btn btn-primary float-end">Submit History</button>
+                        <button type="submit" class="btn btn-primary float-end" onclick="onHistory()">Submit History</button>
                     </div>
                 </div>
             </form>
@@ -57,25 +59,28 @@
                 <table class="table" id="myTable">
                     <thead>
                     <tr class="bg-light">
-                        <th>Client ID</th>
                         <th>Name</th>
                         <th>Health Condition</th>
                         <th>Symptoms</th>
                         <th>Injuries</th>
                         <th>others</th>
                         <th>History Modified Date</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody id="tableList">
                     @foreach($histories as $history)
                         <tr>
-                            <td>{{$history->appointment->id}}</td>
                             <td>{{$history->appointment->firstname}} {{$history->appointment->middlename}} {{$history->appointment->lastname}}</td>
                             <td>{{$history->condition}}</td>
                             <td>{{$history->symptoms}}</td>
                             <td>{{$history->injuries}}</td>
                             <td>{{$history->other}}</td>
                             <td>{{$history->date}}</td>
+                            <td>
+                                <button class="btn btn-warning" onclick="EditHistory({{$history->id}})">Edit</button>
+                                <button class="btn btn-danger" onclick="deleteHistory({{$history->id}})" >Delete</button>
+                            </td>
                         </tr>
                     @endforeach
                     </tbody>
@@ -86,6 +91,7 @@
 </div>
 
 <script>
+
     async function onHistory() {
         let appointment_id = document.getElementById('appointment_id').value;
         let condition = document.getElementById('condition').value;
@@ -100,23 +106,48 @@
             errorToast("Health History required")
         } else if (symptoms.length === 0) {
             errorToast("Symptom is required")
-        } else if (date.length === 0) {
-            errorToast("Date is required")
-        } else {
-            showLoader();
-            let res = await axios.post("newHistory",{
-                appointment_id:appointment_id,
-                condition:condition,
-                symptoms:symptoms,
-                injuries:injuries,
-                other:other,
-                date:date
-            })
-            hideLoader();
         }
-        alert("Successfully added patient history");
+        else {
+            if (other.trim().length === 0) {
+                other = "No";
+            }
+            showLoader();
+            try {
+                let res = await axios.post("newHistory", {
+                    appointment_id: appointment_id,
+                    condition: condition,
+                    symptoms: symptoms,
+                    injuries: injuries,
+                    other: other,
+                    date: date
+                });
+                // Handle the response here
+                hideLoader();
+            } catch (error) {
+                // Handle errors here
+                hideLoader();
+            }
+        }
     }
 
+
+    function EditHistory(Id) {
+        window.location.href = `/editHistory/${Id}`;
+    }
+    async function deleteHistory(Id) {
+        if (confirm("Are you sure you want to delete this appointment?")) {
+            try {
+                showLoader();
+                let res = await axios.delete(`/deleteHistory/${Id}`);
+                successToast(res.data.message);
+                window.location.reload();
+            } catch (error) {
+                errorToast("Failed to delete appointment. Please try again.");
+            } finally {
+                hideLoader();
+            }
+        }
+    }
     $(document).ready( function () {
         $('#myTable').DataTable();
     } );

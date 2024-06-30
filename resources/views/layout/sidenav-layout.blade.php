@@ -68,7 +68,11 @@
 
     <a href="{{url("/appointment")}}" class="side-bar-item">
         <i class="bi bi-people"></i>
-        <span class="side-bar-item-caption">Appointment</span>
+        <span class="side-bar-item-caption">Book Appointment</span>
+    </a>
+    <a href="{{url("/client")}}" class="side-bar-item">
+        <i class="bi bi-people"></i>
+        <span class="side-bar-item-caption">Client List</span>
     </a>
     <a href="{{url("/history")}}" class="side-bar-item">
         <i class="bi bi-clock-history"></i>
@@ -88,10 +92,26 @@
         <span class="side-bar-item-caption">Detail SOAP notes</span>
     </a>
 
+ <a href="{{url('/basicSoapReport')}}" class="side-bar-item">
+        <i class="bi bi-envelope"></i>
+        <span class="side-bar-item-caption">Basic SOAP notes Report</span>
+    </a>
+
+  <a href="{{url('/generalSoapReport')}}" class="side-bar-item">
+      <i class="bi bi-envelope"></i>
+      <span class="side-bar-item-caption">General SOAP notes Report</span>
+  </a>
+
+  <a href="{{url('/detailSoapReport')}}" class="side-bar-item">
+      <i class="bi bi-envelope"></i>
+      <span class="side-bar-item-caption">Detail SOAP notes Reports</span>
+    </a>
+
     <a href="{{url("/reportPage")}}" class="side-bar-item">
         <i class="bi bi-bag"></i>
         <span class="side-bar-item-caption">Report</span>
     </a>
+
     <a href="{{url("/logout")}}" class="side-bar-item">
         <i class="bi bi-box-arrow-right"></i>
         <span class="side-bar-item-caption">Log Out</span>
