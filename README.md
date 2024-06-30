@@ -25,3 +25,6 @@ The Patient Management System (PMS) is a comprehensive solution for doctors to s
 - Generates reports automatically, reducing administrative burden.
 - Ensures accuracy and efficiency in patient care documentation.
 
+##Images
+![Login](image/login.png)
+![Dashboard](image/dashboard.png)
