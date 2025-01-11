@@ -33,11 +33,15 @@ class UserController extends Controller
 
         if($count!==null){
             $email = $request->input('email');
-            $token=JWTToken::CreateToken($email); //create token
             return response()->json([
                 'status' => 'success',
                 'message' => 'User Login Successful',
-            ],200)->cookie('token',$token,60*24*30);
+            ], 200);
+            // $token=JWTToken::CreateToken($email); //create token
+            // return response()->json([
+            //     'status' => 'success',
+            //     'message' => 'User Login Successful',
+            // ],200)->cookie('token',$token,60*24*30);
         }
         else{
             return response()->json([

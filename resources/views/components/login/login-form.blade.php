@@ -37,10 +37,10 @@
             errorToast("Password is required");
         }
         else{
-            showLoader();
+            // showLoader();
             let res=await axios.post("/user-login",{email:email, password:password});
-            hideLoader()
-            if(res.status===200 && res.data['status']==='success'){
+            //hideLoader()
+            if(res.status === 200 && res.data['status']==='success'){
                 window.location.href="/dashboard";
             }
             else{
