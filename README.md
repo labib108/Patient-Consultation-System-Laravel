@@ -1,6 +1,6 @@
-# Patient Management System (PMS)
+# Patient Consultation System - Laravel
 
-The Patient Management System (PMS) is a comprehensive solution for doctors to streamline their workflow and enhance patient care. This system offers a range of features including secure administrator login, appointment scheduling, a detailed client list, patient health history management, Soap Notes Management and Report Generation, 
+The Patient Consultation System (PCS) is a comprehensive solution for doctors to streamline their workflow and enhance patient care. This system offers a range of features including secure administrator login, appointment scheduling, a detailed client list, patient health history management, Soap Notes Management and Report Generation. 
 
 ## Features
 
